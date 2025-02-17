@@ -122,7 +122,10 @@ def main():
     result = model.transcribe(audio_file, language="en")
     query = result["text"]
     print(f"\n🗣️ Query: {query}")
-    
+
+    if query=="Bye and clear chat.":
+        reset_chat_history()
+        
     # Process query
     try:
         response = process_query(query)
